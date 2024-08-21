@@ -1,25 +1,5 @@
-# README
+AÑADIDOS AL CODIGO LAB 3.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# lab-2
+SE CREÓ UNA NUEVA SECCIÓN LLAMADA User Stories.
+DONDE SE CREÓ EL TEXTO DONDE APARECEN LAS USER STORIES, CUMPLIENDO CON LOS REQUISITOS DEL LAB.
+PARA VISUALIZAR LAS USER STORIES SOLO CLICKEAR EN LA NAVBAR "User Stories"
