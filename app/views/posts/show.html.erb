@@ -1,0 +1,21 @@
+<div class="container my-4">
+  <h1><%= @post.title %></h1>
+  <p><%= @post.content %></p>
+  <p><strong>Author:</strong> <%= @post.author %></p>
+  <p><strong>Published:</strong> <%= @post.published %></p>
+
+  <h2 class="my-4">Comments</h2>
+  <% if @post.comments.any? %>
+    <ul class="list-group">
+      <% @post.comments.each do |comment| %>
+        <li class="list-group-item">
+          <p><strong><%= comment.author_name %>:</strong> <%= comment.content %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No comments yet.</p>
+  <% end %>
+
+  <%= link_to 'Back to Posts', posts_path, class: 'btn btn-secondary' %>
+</div>

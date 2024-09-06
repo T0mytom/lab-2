@@ -1,17 +1,7 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
 # Limpia la data para poblarla
-User.destroy_all
-Post.destroy_all
 Comment.destroy_all
+Post.destroy_all
+User.destroy_all
 
 # Create Users
 users = User.create!([
@@ -41,17 +31,17 @@ posts = Post.create!([
   { title: 'Eva’s Career Advice', content: 'Eva Anderson provides valuable career advice based on her experiences in the industry. Her post covers key strategies for career development, overcoming obstacles, and achieving professional growth, drawing from her own journey and offering practical tips for success in the competitive job market.', published: :unpublished, author: 'eva.anderson@example.com' }
 ])
 
-
 # Create Comments
 Comment.create!([
-  { content: 'Amazing post, Walter! Learned a lot about the real science.', author: 'bob.johnson@example.com', post_id: posts[0].id },
-  { content: 'Great insights, Walter. Really enjoyed this read.', author: 'carol.danvers@example.com', post_id: posts[0].id },
-  { content: 'Bob, your story is inspiring! Thanks for sharing.', author: 'walter.white@breakingbad.com', post_id: posts[1].id },
-  { content: 'Very engaging read, Bob. Keep up the good work!', author: 'carol.danvers@example.com', post_id: posts[1].id },
-  { content: 'Carol, your post was very inspiring. Thanks for sharing your journey.', author: 'wade.wilson@marvel.com', post_id: posts[2].id },
-  { content: 'Loved the perspective, Carol. Very well written.', author: 'tazamorano@miuandes.cl', post_id: posts[2].id },
-  { content: 'Wade, your tips are incredibly useful and entertaining.', author: 'joel.miller@naughtydog.com', post_id: posts[3].id },
-  { content: 'Haha, Wade! Your sense of humor makes this even better.', author: 'grace.howard@zenless.com', post_id: posts[3].id },
-  { content: 'Tomas, your insights on technology are spot on!', author: 'hank.pim@ant.com', post_id: posts[4].id },
-  { content: 'Very thought-provoking, Tomas. Appreciate your analysis.', author: 'mia.elfie@example.com', post_id: posts[4].id }
+  { content: 'Amazing post, Walter! Learned a lot about the real science.', user_id: users[0].id, post_id: posts[0].id },
+  { content: 'Great insights, Walter. Really enjoyed this read.', user_id: users[1].id, post_id: posts[0].id },
+  { content: 'Bob, your story is inspiring! Thanks for sharing.', user_id: users[2].id, post_id: posts[1].id },
+  { content: 'Very engaging read, Bob. Keep up the good work!', user_id: users[3].id, post_id: posts[1].id },
+  { content: 'Carol, your post was very inspiring. Thanks for sharing your journey.', user_id: users[4].id, post_id: posts[2].id },
+  { content: 'Loved the perspective, Carol. Very well written.', user_id: users[5].id, post_id: posts[2].id },
+  { content: 'Wade, your tips are incredibly useful and entertaining.', user_id: users[6].id, post_id: posts[3].id },
+  { content: 'Haha, Wade! Your sense of humor makes this even better.', user_id: users[7].id, post_id: posts[3].id },
+  { content: 'Tomas, your insights on technology are spot on!', user_id: users[8].id, post_id: posts[4].id },
+  { content: 'Very thought-provoking, Tomas. Appreciate your analysis.', user_id: users[9].id, post_id: posts[4].id },
+  { content: 'Joel, your work is an inspiration to many. I love what you do and the way you share your experience.', user_id: users[4].id, post_id: posts[5].id }
 ])
