@@ -41,13 +41,41 @@
             <li class="nav-item">
               <%= link_to 'All Posts', posts_path, class: 'nav-link' %>
             </li>
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <span class="navbar-text">Welcome, <%= current_user.email %>!</span>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to 'Login', new_user_session_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+              </li>
+            <% end %>
           </ul>
         </div>
       </div>
     </nav>
 
+    <!-- Mensajes flash -->
     <div class="container" style="margin-top: 70px;">
-      <%= yield %>
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <%= flash[:notice] %>
+        </div>
+      <% elsif flash[:alert] %>
+        <div class="alert alert-danger">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+
+      <div class="container" style="margin-top: 30px;">
+        <%= yield %>
+      </div>
     </div>
 
     <footer class="bg-dark text-white text-center py-3 mt-auto">

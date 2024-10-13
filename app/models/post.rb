@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   validates :title, length: { maximum: 100 }
   validates :published, inclusion: { in: %w[unpublished published] }
   validate :author_exists
+  belongs_to :user
 
 
   # Enum
